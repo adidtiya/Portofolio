@@ -1,0 +1,187 @@
+/* =============================================
+   TABLE OF CONTENTS
+   ---------------------------------------------
+   1.  CSS Variables & Dark Mode
+   2.  Global Resets & Basic Styling
+   3.  Utility Classes (Container, Screen Reader)
+   4.  Pre-loader & Spinner
+   5.  Custom Cursor
+   6.  Header & Navigation
+   7.  Buttons (CTA, Filter, etc.)
+   8.  Hero Section
+   9.  Resume Section (Timeline & Skills)
+   10. Projects Section (Filter & Grid)
+   11. Project Detail Modal
+   12. Contact Section & Form
+   13. Footer & Back-to-Top Button
+   14. Animations (Fade-in, etc.)
+   15. Media Queries (Responsive Design)
+   ============================================= */
+
+/* --- 1. CSS Variables & Dark Mode --- */
+:root {
+    --bg-color: #f5f5f7;        
+    --text-color: #1d1d1f;      
+    --primary-color: #0066cc;    
+    --primary-glow: rgba(0, 102, 204, 0.25);
+    --card-bg: #ffffff;         
+    --header-bg: rgba(255, 255, 255, 0.85); 
+    --footer-bg: #1d1d1f;       
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-dark: rgba(0, 0, 0, 0.1);
+    --border-color: #e5e7eb;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body.dark-mode {
+    --bg-color: #0a192f; 
+    --text-color: #ccd6f6; 
+    --primary-color: #64ffda; 
+    --primary-glow: rgba(100, 255, 218, 0.3); 
+    --card-bg: #112240; 
+    --header-bg: rgba(17, 34, 64, 0.85); 
+    --footer-bg: #0a192f; 
+    --shadow-light: rgba(2, 12, 27, 0.7); 
+    --shadow-dark: rgba(2, 12, 27, 0.7); 
+    --border-color: #314261;
+}
+
+/* --- 2. Global Resets & Basic Styling --- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+    font-family: var(--font-family); 
+    margin: 0; 
+    padding: 0; 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    line-height: 1.7; 
+    transition: background-color 0.5s ease, color 0.5s ease; 
+}
+
+/* Typography */
+h1, h2, h3, h4 { color: var(--text-color); font-weight: 600; }
+h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+section { padding: 80px 20px; }
+
+/* --- 3. Utility Classes --- */
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+/* --- 4. Pre-loader & Spinner --- */
+#preloader { position: fixed; inset: 0; background-color: var(--bg-color); z-index: 10000; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+#preloader.loaded { opacity: 0; visibility: hidden; }
+.spinner { width: 50px; height: 50px; border: 5px solid var(--border-color); border-top: 5px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* --- 5. Custom Cursor --- */
+.cursor-dot, .cursor-outline { pointer-events: none; position: fixed; border-radius: 50%; z-index: 9999; opacity: 0; transform: translate(-50%, -50%); transition: opacity 0.3s ease, transform 0.1s ease; }
+.cursor-dot { width: 8px; height: 8px; background-color: var(--primary-color); }
+.cursor-outline { width: 40px; height: 40px; border: 2px solid var(--primary-color); }
+body:hover .cursor-dot, body:hover .cursor-outline { opacity: 1; }
+* { cursor: none; }
+
+/* --- 6. Header & Navigation --- */
+header { background-color: var(--header-bg); padding: 1rem 0; box-shadow: 0 2px 5px var(--shadow-light); position: sticky; top: 0; z-index: 1000; transition: background-color 0.5s ease; backdrop-filter: blur(10px); }
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: bold; font-size: 1.8rem; color: var(--primary-color); text-decoration: none; }
+nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+nav a { text-decoration: none; color: var(--text-color); font-weight: 500; transition: color 0.3s; }
+nav a:hover { color: var(--primary-color); }
+.nav-extra { display: flex; align-items: center; gap: 20px; }
+#theme-toggle { background: none; border: none; font-size: 1.5rem; color: var(--text-color); transition: transform 0.3s ease; }
+.hamburger { display: none; background: none; border: none; padding: 0; display: flex; flex-direction: column; gap: 5px; z-index: 1001; }
+.hamburger .line { width: 25px; height: 3px; background-color: var(--text-color); border-radius: 3px; transition: all 0.3s ease-in-out; }
+
+/* --- 7. Buttons --- */
+.btn { display: inline-block; padding: 12px 30px; border-radius: 50px; text-decoration: none; border: 2px solid transparent; font-weight: 600; font-family: var(--font-family); transition: transform 0.3s, box-shadow 0.3s; }
+.btn--primary { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
+.btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px var(--primary-glow); }
+.btn--secondary { background-color: transparent; color: var(--primary-color); border-color: var(--primary-color); }
+.btn--secondary:hover { background-color: var(--primary-glow); box-shadow: none; }
+.btn--small { padding: 10px 20px; border-radius: 20px; }
+
+.filter-btn { background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 8px 20px; border-radius: 20px; font-family: var(--font-family); font-weight: 500; transition: background-color 0.3s, color 0.3s; }
+.filter-btn.active, .filter-btn:hover { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
+
+/* --- 8. Hero Section --- */
+.hero { display: flex; justify-content: center; align-items: center; text-align: center; min-height: 90vh; }
+.hero-profile-pic { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid var(--primary-color); box-shadow: 0 0 20px var(--primary-glow); }
+.hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 700; }
+.hero-content .btn { margin-top: 1.5rem; }
+.typing-effect { border-right: 0.15em solid var(--primary-color); animation: blink-caret .75s step-end infinite; }
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--primary-color); } }
+
+/* --- 9. Resume Section (Timeline & Skills) --- */
+.resume-container { display: grid; grid-template-columns: 1fr; gap: 50px; }
+.timeline, .skills-section { background-color: var(--card-bg); padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-light); }
+.timeline h3, .skills-section h3 { margin-top: 0; color: var(--primary-color); display: flex; align-items: center; gap: 10px; }
+.timeline-item { position: relative; padding: 10px 0 20px 30px; border-left: 2px solid var(--primary-color); }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot { position: absolute; left: -9px; top: 15px; width: 16px; height: 16px; border-radius: 50%; background-color: var(--primary-color); border: 2px solid var(--bg-color); }
+.timeline-content h4 { margin: 0; }
+.timeline-date { font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 5px; }
+.skills-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.skill-card { background-color: var(--bg-color); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); }
+.skill-card h4 { margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px; }
+
+/* --- 10. Projects Section --- */
+.filter-buttons { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.project-card { background-color: var(--card-bg); padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-light); transition: transform 0.4s, opacity 0.4s, box-shadow 0.4s; display: flex; flex-direction: column; }
+.project-card.hide { transform: scale(0.9); opacity: 0; display: none; }
+.project-image { width: 100%; border-radius: 8px; margin-bottom: 15px; aspect-ratio: 16/10; object-fit: cover; }
+.project-card h3 { margin-top: 0; color: var(--primary-color); }
+.project-tags { margin: auto 0 15px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { background-color: var(--primary-color); color: white; padding: 4px 10px; font-size: 0.8rem; border-radius: 15px; font-weight: 500; }
+
+/* --- 11. Project Detail Modal --- */
+.modal { display: none; position: fixed; z-index: 1001; inset: 0; overflow: auto; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
+.modal-content { background-color: var(--card-bg); margin: 15% auto; padding: 30px; border-radius: 12px; max-width: 600px; position: relative; animation: slide-down 0.5s ease-out; }
+@keyframes slide-down { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.close-btn { position: absolute; top: 15px; right: 20px; color: var(--text-color); background: none; border: none; font-size: 28px; font-weight: bold; transition: color 0.3s; }
+.close-btn:hover, .close-btn:focus { color: var(--primary-color); }
+#modal-title { margin-top: 0; color: var(--primary-color); }
+.modal-links { margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap; }
+.modal-links .btn { margin-top: 0; }
+
+/* --- 12. Contact Section & Form --- */
+.contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.contact-info p { margin-bottom: 20px; }
+.social-links { display: flex; gap: 20px; }
+.social-links a { color: var(--text-color); font-size: 1.8rem; transition: color 0.3s, transform 0.3s; }
+.social-links a:hover { color: var(--primary-color); transform: scale(1.2); }
+.contact-form .form-group { margin-bottom: 20px; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-family); transition: border-color 0.3s, box-shadow 0.3s; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 5px var(--primary-glow); }
+#form-status { margin-top: 10px; text-align: center; font-weight: 500; min-height: 1.5em; }
+
+/* --- 13. Footer & Back-to-Top Button --- */
+footer { text-align: center; padding: 25px; background-color: var(--footer-bg); color: #ecf0f1; }
+#back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--primary-color); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s, transform 0.3s, visibility 0.3s; z-index: 100; transform: translateY(20px); }
+#back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+/* --- 14. Animations --- */
+.hidden { opacity: 0; filter: blur(5px); transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out, filter 0.6s ease-out; }
+.show { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+/* --- 15. Media Queries --- */
+@media (max-width: 768px) {
+    /* Hide custom cursor on mobile */
+    .cursor-dot, .cursor-outline { display: none; }
+    * { cursor: auto; }
+
+    /* Responsive Navigation */
+    .nav-links { position: fixed; right: -100%; top: 0; height: 100vh; width: 60%; background-color: var(--card-bg); flex-direction: column; justify-content: center; align-items: center; gap: 40px; transition: right 0.5s ease-in-out; box-shadow: -5px 0 15px var(--shadow-dark); }
+    .nav-links.active { right: 0; }
+    .hamburger { display: flex; }
+    .hamburger.toggle .line:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+    .hamburger.toggle .line:nth-child(2) { opacity: 0; }
+    .hamburger.toggle .line:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+    
+    /* Responsive Typography & Layout */
+    h2 { font-size: 2rem; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .contact-container { grid-template-columns: 1fr; }
+    .modal-content { margin: 25% auto; width: 90%; }
+}

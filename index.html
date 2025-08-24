@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Adidtiya Kurniawan | Web Developer Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <meta name="description" content="Portofolio digital Adidtiya Kurniawan, seorang mahasiswa IT yang bersemangat dalam pengembangan web dan pemrograman. Lihat proyek, resume, dan hubungi saya.">
+    <meta name="keywords" content="Adidtiya Kurniawan, portofolio, web developer, mahasiswa IT, Universitas Tarumanagara, PHP, Flutter, JavaScript">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Adidtiya Kurniawan | Web Developer Portfolio">
+    <meta property="og:description" content="Portofolio digital Adidtiya Kurniawan, menampilkan proyek dan keahlian dalam pengembangan web.">
+    <meta property="og:image" content="URL_GAMBAR_PREVIEW_ANDA">
+    <meta property="og:url" content="URL_WEBSITE_ANDA">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Adidtiya Kurniawan | Web Developer Portfolio">
+    <meta name="twitter:description" content="Portofolio digital Adidtiya Kurniawan, menampilkan proyek dan keahlian dalam pengembangan web.">
+    <meta name="twitter:image" content="URL_GAMBAR_PREVIEW_ANDA">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Adidtiya Kurniawan</a>
+            <ul class="nav-links">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#resume">Resume</a></li> 
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="nav-extra">
+                <button id="theme-toggle" aria-label="Toggle light/dark theme">☀️</button>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="hero hidden">
+            <div class="hero-content">
+                <img src="gambar/photo.jpg" alt="Foto Profil Adidtiya Kurniawan" class="hero-profile-pic">
+                <h1>Halo, saya <span class="typing-effect"></span></h1>
+                <p>Seorang mahasiswa IT dari Universitas Tarumanagara, yang bersemangat dalam pengembangan web dan pemrograman. Selamat datang di portofolio digital saya!</p>
+                <a href="#projects" class="btn btn--primary">Lihat Proyek Saya</a>
+            </div>
+        </section>
+
+        <section id="resume" class="container hidden">
+            <h2>Resume</h2>
+            <div class="resume-container">
+                <div class="timeline">
+                    <h3><i class="fas fa-graduation-cap"></i> Riwayat Pendidikan</h3>
+                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h4>Universitas Tarumanagara</h4><p class="timeline-date">2023 - Sekarang</p><p>S1 - Teknik Informatika</p></div></div>
+                    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h4>SMA Yadika 2</h4><p class="timeline-date">2020 - 2023</p><p>Jurusan Teknik Komputer dan Jaringan</p></div></div>
+                </div>
+                <div class="skills-section">
+                    <h3><i class="fas fa-cogs"></i> Keahlian</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card"><h4><i class="fas fa-code"></i> Hard Skills</h4><div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">C++</span><span class="tag">Python</span></div></div>
+                        <div class="skill-card"><h4><i class="fas fa-users"></i> Soft Skills</h4><div class="project-tags"><span class="tag">Kerja Tim</span><span class="tag">Problem Solving</span><span class="tag">Adaptif</span><span class="tag">Manajemen Waktu</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>Proyek Saya</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="php">PHP</button>
+                <button class="filter-btn" data-filter="flutter">Flutter</button>
+                <button class="filter-btn" data-filter="javascript">JavaScript</button>
+            </div>
+            <div class="project-grid">
+                 <div class="project-card hidden" data-category="php javascript">
+                    <img src="gambar/image.png" alt="Proyek DigiSteels" class="project-image">
+                    <h3>Proyek Web E-Commerce DigiSteels</h3>
+                    <div class="project-tags"><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">MySQL</span></div>
+                    <div class="project-links">
+                        <button class="btn btn--small project-detail-btn" 
+                                data-title="Proyek Web E-Commerce DigiSteels"
+                                data-desc="Platform e-commerce lengkap untuk produk elektronik yang dibangun menggunakan PHP, JavaScript, dan MySQL. Fitur-fiturnya mencakup sistem manajemen produk, keranjang belanja, halaman autentikasi (login/register), serta dashboard admin untuk pengelolaan data."
+                                data-github="https://github.com/wei5002/UAS_SoftwareDevelopment_Kelompok7.git"
+                                data-live="https://uas-software-development-kelompok7.vercel.app/">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+                <div class="project-card hidden" data-category="flutter">
+                    <img src="gambar/marketM.png" alt="Proyek Mobile App" class="project-image">
+                    <h3>Aplikasi Mobile E-Commerce</h3>
+                    <div class="project-tags"><span class="tag">Flutter</span><span class="tag">Dart</span></div>
+                    <div class="project-links">
+                        <button class="btn btn--small project-detail-btn"
+                                data-title="Aplikasi Mobile E-Commerce"
+                                data-desc="Aplikasi mobile e-commerce ini dikembangkan menggunakan Flutter dan Dart. Proyek ini menampilkan produk dengan tata letak yang menarik, fungsi pencarian, dan halaman detail produk. Fokus utamanya adalah pada antarmuka pengguna (UI) yang responsif dan pengalaman pengguna (UX) yang baik di perangkat mobile."
+                                data-github="https://github.com/MrJov100/marketplace_kelompok4.git"
+                                data-live="">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+                <div class="project-card hidden" data-category="php javascript">
+                    <img src="gambar/sosmed.png" alt="Proyek Social Media" class="project-image">
+                    <h3>Website Sosial Media</h3>
+                    <div class="project-tags"><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">MySQL</span></div>
+                    <div class="project-links">
+                       <button class="btn btn--small project-detail-btn"
+                                data-title="Proyek Website Sosial Media"
+                                data-desc="Sebuah platform media sosial sederhana yang memungkinkan pengguna untuk membuat dan berbagi postingan. Proyek ini dibangun dengan PHP, JavaScript, dan MySQL serta menyertakan fitur otentikasi pengguna, profil, dan interaksi dasar seperti menyukai postingan."
+                                data-github="https://github.com/MrJov100/UAS_SocialMedia_Kelompok7.git"
+                                data-live="">
+                           Lihat Detail
+                       </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="container hidden">
+            <h2>Hubungi Saya</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>Tertarik untuk berkolaborasi atau memiliki pertanyaan? Hubungi saya melalui formulir di samping atau tautan sosial media di bawah ini.</p>
+                    <div class="social-links">
+                        <a href="mailto:adidtyakurniawan04@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/adidtiya-kurniawan-57b398326/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/adidtiya" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="sr-only">Nama Anda</label>
+                        <input type="text" id="name" name="name" required placeholder="Nama Anda">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email Anda</label>
+                        <input type="email" id="email" name="email" required placeholder="Email Anda">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="sr-only">Pesan Anda</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Pesan Anda"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary">Kirim Pesan</button>
+                    <p id="form-status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Adidtiya Kurniawan. Dibuat dengan Penuh Semangat.</p>
+    </footer>
+    
+    <button id="back-to-top" title="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" aria-label="Close modal">&times;</button>
+            <h3 id="modal-title"></h3>
+            <p id="modal-desc"></p>
+            <div class="modal-links">
+                <a href="#" id="modal-live-link" class="btn btn--primary" target="_blank">Lihat Live Demo</a>
+                <a href="#" id="modal-github-link" class="btn btn--secondary" target="_blank">Lihat di GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
